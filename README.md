@@ -1,5 +1,7 @@
 # battery-osd
-An OSD for battery level alerts.
+An OSD for battery level alerts for your wayland compositor.
+
+> I got tired of my laptop shutting off because I didn't know it had low battery so (A)I made this tiny utility.
 
 ## Images
 
