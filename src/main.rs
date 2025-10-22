@@ -78,7 +78,7 @@ impl Default for PositionConfig {
         Self {
             horizontal: default_horizontal(),
             vertical: default_vertical(),
-            padding_top: 0,
+            padding_top: 20,
             padding_bottom: 0,
             padding_left: 0,
             padding_right: 0,
