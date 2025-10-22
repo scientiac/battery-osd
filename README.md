@@ -13,6 +13,12 @@ An OSD for battery level alerts for your wayland compositor.
   <img src="./resources/critical.png" alt="Critical" width="180">
 </div>
 
+## Installation
+1. Clone this repository.
+2. Run `cargo build --release`
+3. Copy/Move `./target/release/battery-osd` to your $PATH. 
+4. Run it during startup.
+
 ## Configuration
 
 Put your configuration file at `$HOME/.config/battery-osd/config.toml`.
