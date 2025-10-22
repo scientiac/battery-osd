@@ -1,0 +1,111 @@
+/* Battery OSD Styles */
+
+window {
+    background-color: transparent;
+}
+
+.osd-container {
+    background-color: @theme_bg_color;
+    border-radius: 12px;
+    padding: 12px 24px;
+    border: 1px solid @borders;
+}
+
+/* Icon Styling - Use padding/margin to align */
+.osd-icon {
+    color: @theme_fg_color;
+    margin: 0px 0px 0px 0px;
+    padding: 0px;
+}
+
+.osd-label {
+    font-size: 16px;
+    font-weight: 500;
+    color: @theme_fg_color;
+    padding: 0px 8px 0px 4px;
+}
+
+/* Critical State */
+.critical .osd-container {
+    background-color: #dc2626;
+    border-color: #991b1b;
+}
+
+.critical .osd-icon {
+    color: #fef2f2;
+}
+
+.critical .osd-label {
+    color: #fef2f2;
+}
+
+/* Low Battery State */
+.low .osd-container {
+    background-color: #ea580c;
+    border-color: #c2410c;
+}
+
+.low .osd-icon {
+    color: #fff7ed;
+}
+
+.low .osd-label {
+    color: #fff7ed;
+}
+
+/* Charging State */
+.charging .osd-container {
+    background-color: #16a34a;
+    border-color: #15803d;
+}
+
+.charging .osd-icon {
+    color: #f0fdf4;
+}
+
+.charging .osd-label {
+    color: #f0fdf4;
+}
+
+/* Full Battery State */
+.full .osd-container {
+    background-color: @theme_bg_color;
+    border-color: #16a34a;
+}
+
+.full .osd-icon {
+    color: #16a34a;
+}
+
+.full .osd-label {
+    color: @theme_fg_color;
+}
+
+/* Healthy Battery State */
+.healthy .osd-container {
+    background-color: #0891b2;
+    border-color: #0e7490;
+}
+
+.healthy .osd-icon {
+    color: #ecfeff;
+}
+
+.healthy .osd-label {
+    color: #ecfeff;
+}
+
+/* Normal State */
+.normal .osd-container {
+    background-color: @theme_bg_color;
+    border-color: @borders;
+}
+
+.normal .osd-icon {
+    color: @theme_fg_color;
+}
+
+.normal .osd-label {
+    color: @theme_fg_color;
+}
+
