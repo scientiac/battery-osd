@@ -15,3 +15,5 @@ An OSD for battery level alerts.
 
 Put your configuration file at `$HOME/.config/battery-osd/config.toml`.
 And your styles file at `$HOME/.config/battery-osd/style.css`.
+
+You can find the `config.toml` and `style.css` example at [./config](./config/)
