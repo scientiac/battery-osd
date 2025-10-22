@@ -1,6 +1,19 @@
 # Battery OSD Configuration
 # Place this file at: ~/.config/battery-osd/config.toml
 
+# Path to battery in sysfs (usually /sys/class/power_supply/BAT0 or BAT1)
+battery_path = "/sys/class/power_supply/BAT0"
+
+# How often to check battery status (in seconds)
+poll_interval_secs = 5
+
+# ============================================================================
+# BATTERY THRESHOLDS
+# ============================================================================
+critical_threshold = 10.0   # Show critical warning at this percentage
+low_threshold = 20.0        # Show low battery warning at this percentage
+healthy_threshold = 80.0    # Remind to unplug when charging reaches this percentage
+
 # ============================================================================
 # TIMEOUT CONFIGURATION
 # ============================================================================
@@ -28,19 +41,6 @@ padding_top = 0
 padding_bottom = 100
 padding_left = 0
 padding_right = 0
-
-# ============================================================================
-# BATTERY THRESHOLDS
-# ============================================================================
-critical_threshold = 10.0   # Show critical warning at this percentage
-low_threshold = 20.0        # Show low battery warning at this percentage
-healthy_threshold = 80.0    # Remind to unplug when charging reaches this percentage
-
-# Path to battery in sysfs (usually /sys/class/power_supply/BAT0 or BAT1)
-battery_path = "/sys/class/power_supply/BAT0"
-
-# How often to check battery status (in seconds)
-poll_interval_secs = 5
 
 # ============================================================================
 # COMMAND EXECUTION
