@@ -431,7 +431,7 @@ fn load_css() {
     let css = if let Ok(content) = std::fs::read_to_string(&css_path) {
         content
     } else {
-        include_str!("../default-style.css").to_string()
+        include_str!("../style/style.css").to_string()
     };
 
     let provider = CssProvider::new();
