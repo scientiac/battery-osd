@@ -15,6 +15,20 @@ low_threshold = 20.0        # Show low battery warning at this percentage
 healthy_threshold = 80.0    # Remind to unplug when charging reaches this percentage
 
 # ============================================================================
+# DISABLE SPECIFIC NOTIFICATIONS
+# ============================================================================
+# Disable specific battery notifications by level
+# Available levels: "critical", "low", "healthy", "charging", "full", "normal"
+# "normal" = discharging above low threshold
+
+disable = ["normal"]
+
+# Examples:
+# disable = ["low"]                    # Disable low battery notifications
+# disable = ["charging", "full"]       # Disable charging and full notifications
+# disable = []    
+
+# ============================================================================
 # TIMEOUT CONFIGURATION
 # ============================================================================
 # Configure different timeouts for each battery state
@@ -49,7 +63,7 @@ padding_right = 0
 [commands]
 # on_charging = "notify-send 'Battery' 'Charging started'"
 # on_discharging = "brightnessctl set 50%;"
-on_critical = "brightnessctl set 5%; for i in {1..3}; do mpv --no-video /usr/share/sounds/gnome/default/alerts/hum.ogg; kill $!; done"
+on_critical = "brightnessctl set 5%; for i in {1..3}; do mpv --no-video /usr/share/sounds/gnome/default/alerts/hum.ogg; done"
 on_low = "brightnessctl set 10%; mpv --no-video /usr/share/sounds/gnome/default/alerts/hum.ogg"
 # on_low = "notify-send 'Battery Low' 'Please charge soon'"
 on_full = "brightnessctl set 100%"
