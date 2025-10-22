@@ -26,6 +26,8 @@ struct Config {
     commands: CommandConfig,
     #[serde(default)]
     timeouts: TimeoutConfig,
+    #[serde(default)]
+    disable: Vec<String>,
 }
 
 #[derive(Debug, Deserialize, Clone)]
@@ -136,6 +138,7 @@ impl Default for Config {
             poll_interval_secs: default_poll_interval(),
             commands: CommandConfig::default(),
             timeouts: TimeoutConfig::default(),
+            disable: Vec::new(),
         }
     }
 }
@@ -310,6 +313,12 @@ impl BatteryMonitor {
         }
     }
 
+    fn is_disabled(&self, level: &str) -> bool {
+        self.config.disable.iter().any(|disabled_level| {
+            disabled_level.to_lowercase() == level.to_lowercase()
+        })
+    }
+
     fn check_battery(&self) -> Result<Option<(String, String, String, u64)>> {
         let battery_info = BatteryInfo::read_from_sysfs(&self.config.battery_path)?;
         
@@ -397,6 +406,11 @@ impl BatteryMonitor {
                      self.config.timeouts.discharging)
                 }
             };
+
+            // Check if this notification is disabled
+            if self.is_disabled(level) {
+                return Ok(None);
+            }
 
             self.execute_command(command);
 
