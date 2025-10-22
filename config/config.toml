@@ -1,0 +1,56 @@
+# Battery OSD Configuration
+# Place this file at: ~/.config/battery-osd/config.toml
+
+# ============================================================================
+# TIMEOUT CONFIGURATION
+# ============================================================================
+# Configure different timeouts for each battery state
+[timeouts]
+charging = 3000      # Charging notification timeout
+discharging = 3000   # Discharging notification timeout
+critical = 12000     # Critical battery timeout (stays longer)
+low = 12000          # Low battery timeout (stays longer)
+full = 3000          # Full battery timeout
+healthy = 3000       # Healthy/unplug reminder timeout
+
+# ============================================================================
+# POSITION CONFIGURATION
+# ============================================================================
+[position]
+# Horizontal alignment: "left", "center", "right"
+horizontal = "center"
+
+# Vertical alignment: "top", "bottom"
+vertical = "bottom"
+
+# Padding from edges (in pixels)
+padding_top = 0
+padding_bottom = 100
+padding_left = 0
+padding_right = 0
+
+# ============================================================================
+# BATTERY THRESHOLDS
+# ============================================================================
+critical_threshold = 10.0   # Show critical warning at this percentage
+low_threshold = 20.0        # Show low battery warning at this percentage
+healthy_threshold = 80.0    # Remind to unplug when charging reaches this percentage
+
+# Path to battery in sysfs (usually /sys/class/power_supply/BAT0 or BAT1)
+battery_path = "/sys/class/power_supply/BAT0"
+
+# How often to check battery status (in seconds)
+poll_interval_secs = 5
+
+# ============================================================================
+# COMMAND EXECUTION
+# ============================================================================
+# Execute shell commands on battery state changes
+[commands]
+# on_charging = "notify-send 'Battery' 'Charging started'"
+# on_discharging = "brightnessctl set 50%;"
+on_critical = "brightnessctl set 5%; for i in {1..3}; do mpv --no-video /usr/share/sounds/gnome/default/alerts/hum.ogg; kill $!; done"
+on_low = "brightnessctl set 10%; mpv --no-video /usr/share/sounds/gnome/default/alerts/hum.ogg"
+# on_low = "notify-send 'Battery Low' 'Please charge soon'"
+on_full = "brightnessctl set 100%"
+# on_healthy = "notify-send 'Battery Healthy' 'Consider unplugging to preserve battery health'"
