@@ -168,7 +168,7 @@ impl BatteryInfo {
             .map_err(|e| anyhow::anyhow!("Failed to read status from {}: {}", status_path, e))?;
         let status = match status_str.trim() {
             "Charging" => BatteryStatus::Charging,
-            "Discharging" | "Not charging" => BatteryStatus::Discharging,
+            "Discharging" => BatteryStatus::Discharging,
             "Full" => BatteryStatus::Full,
             _ => BatteryStatus::Unknown,
         };
@@ -348,7 +348,7 @@ impl BatteryMonitor {
             let (icon, message, level, command, timeout) = match battery_info.status {
                 BatteryStatus::Charging => {
                     if battery_info.capacity >= self.config.healthy_threshold {
-                        ("battery-level-80-plugged-in-symbolic", 
+                        ("battery-good-charging-symbolic", 
                          format!("Healthy {}%", capacity), 
                          "healthy", 
                          &self.config.commands.on_healthy,
