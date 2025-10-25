@@ -4,17 +4,11 @@ window {
   background-color: transparent;
 }
 
-/* Battery OSD Styles */
-
-window {
-  background-color: transparent;
-}
-
 .osd-container {
   border-radius: 100px;
   border: 1px solid #3a3b3c;
   padding: 12px 24px;
-  background: #000000;
+  background: @theme_bg_color;
 }
 
 /* Icon Styling - Use padding/margin to align */
